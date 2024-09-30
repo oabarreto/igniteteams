@@ -5,12 +5,15 @@ import { Button } from "@components/Button";
 import { Highlight } from "@components/Highlight";
 import { Input } from "@components/Input";
 import { useNavigation } from "@react-navigation/native";
+import { useState } from "react";
 
 export function NewGroup() {
+  const [group, setGroup] = useState("");
+
   const navigation = useNavigation();
 
   const handleCreate = () => {
-    navigation.navigate("players", { group: "Grupo" });
+    navigation.navigate("players", { group });
   };
 
   return (
@@ -25,7 +28,7 @@ export function NewGroup() {
           subtitle="Crie uma galera para adicionar pessoas"
         />
 
-        <Input placeholder={"Nome da sua galera"} />
+        <Input placeholder={"Nome da sua galera"} onChangeText={setGroup} />
 
         <Button
           title="Criar"
