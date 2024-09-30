@@ -1,5 +1,5 @@
 import styled from "styled-components/native";
-import { CaretLeft } from "phosphor-react-native";
+import { CaretLeft, House } from "phosphor-react-native";
 
 export const Container = styled.View`
   width: 100%;
@@ -13,11 +13,20 @@ export const Logo = styled.Image`
   height: 55px;
 `;
 
-export const BackButton = styled.TouchableOpacity`
+export const ButtonContainer = styled.View`
   flex: 1;
+  flex-direction: row;
+  gap: 12px;
 `;
 
+export const Button = styled.TouchableOpacity``;
+
 export const BackIcon = styled(CaretLeft).attrs(({ theme }) => ({
+  size: 32,
+  color: theme.COLORS.WHITE,
+}))``;
+
+export const HomeIcon = styled(House).attrs(({ theme }) => ({
   size: 32,
   color: theme.COLORS.WHITE,
 }))``;

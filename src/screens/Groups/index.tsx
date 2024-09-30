@@ -6,6 +6,7 @@ import { Header } from "@components/Header";
 import { Highlight } from "@components/Highlight";
 import { ListEmpty } from "@components/ListEmpty";
 import { Button } from "@components/Button";
+import { useNavigation } from "@react-navigation/native";
 
 export function Groups() {
   const [groups, setGroups] = useState<string[]>([
@@ -13,6 +14,12 @@ export function Groups() {
     "Amigos",
     "Trabalho",
   ]);
+
+  const navigation = useNavigation();
+
+  const handleCreateGroup = () => {
+    navigation.navigate("new");
+  };
 
   return (
     <Container>
@@ -29,7 +36,7 @@ export function Groups() {
         )}
       />
 
-      <Button title="Criar galera" />
+      <Button title="Criar galera" onPress={handleCreateGroup} />
     </Container>
   );
 }
